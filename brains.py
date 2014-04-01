@@ -27,7 +27,7 @@ class MoodBoombox(object):
 		self.mood = mood
 		self.lead_track = {'sample_url': '', 'local_url': ''}
 		self.other_tracks = {'sample_urls': [], 'local_urls': []}
-		self.other_result_set = []
+		self.other_track_urls = []
 		self.run()
 		end = time.time()
 		print 'that took {}'.format(end-start)
@@ -52,14 +52,16 @@ class MoodBoombox(object):
 		self.other_tracks['local_urls'].append(local_url)
 		self.other_tracks['sample_urls'].append(track_url)
 
-	def get_track(self, *_type, **song_preferences):
-		search_type = _type[0]
-		results = song_search(**song_preferences) if not self.other_result_set else self.other_result_set
-		self.other_result_set = results if search_type != 'lead' else self.other_result_set
-		shuffle(results)
-		track_urls = [s.get_tracks("7digital-US")[0].get("preview_url") for s in results\
-		 					if s.get_tracks("7digital-US") and 								 \
-		 					 s.get_tracks("7digital-US")[0].get("preview_url")]
+	def get_track(self, search_type, **song_preferences):
+		if search_type == 'other' and self.other_track_urls:
+			track_urls = self.other_track_urls
+		else:
+			results = song_search(**song_preferences)
+			shuffle(results)
+			track_urls = [s.get_tracks("7digital-US")[0].get("preview_url") for s in results\
+			 					if s.get_tracks("7digital-US") and 							\
+			 					 s.get_tracks("7digital-US")[0].get("preview_url")]
+			self.other_track_urls = track_urls if search_type == 'other' else self.other_track_urls
 		for url in track_urls:
 			try:
 				urllib2.urlopen(url)
