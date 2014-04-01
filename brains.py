@@ -33,9 +33,9 @@ class MoodBoombox(object):
 		print 'that took {}'.format(end-start)
 		
 	def run(self):
+		self.set_other_track()
+		self.set_other_track()
 		self.set_lead_track()
-		self.set_other_track()
-		self.set_other_track()
 		self.make_song()
 
 	def set_lead_track(self):
@@ -47,7 +47,7 @@ class MoodBoombox(object):
 
 	def set_other_track(self):
 		track_url = self.get_track('other', mood=self.mood, max_speechiness=0.3, 
-		  min_danceability=0.8, buckets=['id:7digital-US', 'tracks'], results=7)
+		  min_danceability=0.8, buckets=['id:7digital-US', 'tracks'], results=8)
 		local_url = get_file(track_url)
 		self.other_tracks['local_urls'].append(local_url)
 		self.other_tracks['sample_urls'].append(track_url)
@@ -78,16 +78,13 @@ class MoodBoombox(object):
 	# "crossmatch" the two other tracks 
 	# then crossmatch the result w the lead
 	def make_song(self, t1_url=None, t2_url=None, is_lead=False):
-		def local(u):
-			return u if len(u.split("/")) > 1 and "temp__" in u.split("/")[1] else PARTIAL_MASHUP_DIR+u
-
 		if not t1_url and not t2_url:
 			t1_url, t2_url = tuple(self.other_tracks['local_urls'])
-		t1, t2 = audio.LocalAudioFile(local(t1_url)), audio.LocalAudioFile(local(t2_url))
+		t1, t2 = audio.LocalAudioFile(t1_url), audio.LocalAudioFile(t2_url)
 		mashup = Mashup('crossmatch', t1, t2)
 		out = mashup.process_tracks()
 		if not is_lead:
-			file_name = "{dir}temp__{name}.mp3".format(dir=OUTPUT_DIR, name=self.output_name)
+			file_name = "{dir}{name}.mp3".format(dir=PARTIAL_MASHUP_DIR, name=self.output_name)
 			out.encode(file_name)
 			self.make_song(t1_url=file_name, t2_url=self.lead_track['local_url'], is_lead=True)
 		else:

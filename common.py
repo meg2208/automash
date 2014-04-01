@@ -1,3 +1,4 @@
+SD_SAMPLES = "7d_samples/"
 PARTIAL_MASHUP_DIR = "mashups_partial/"
 OUTPUT_DIR = "mashups/"
 VALID_MOODS = ['aggressive', 'ambient', 'angry', 'angst-ridden', 'bouncy',\

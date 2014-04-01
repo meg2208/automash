@@ -22,4 +22,4 @@ def get_file(url):
 	    status = status + chr(8)*(len(status)+1)
 	    print status,
 	f.close()
-	return "{}".format(file_name)
+	return "7d_samples/{}".format(file_name)

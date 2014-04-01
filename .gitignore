@@ -1,6 +1,4 @@
 echo-nest-remix-examples/
-mashups/*.mp3
-mashups_partial/*.mp3
 temp/
 scrap.py
 proof_of_concept.py
@@ -8,4 +6,4 @@ poc1.py
 booo.txt
 *.pyc
 venv/
-7d_samples/*.mp3
+.DS_Store
