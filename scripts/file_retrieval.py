@@ -6,7 +6,7 @@ def get_file(url):
 	print 'Attempting to download {}'.format(url)
 	file_name = url.split('/')[-1]
 	u = urllib2.urlopen(url)
-	f = open('test_songs/{}'.format(file_name), 'wb')
+	f = open('7d_samples/{}'.format(file_name), 'wb')
 	meta = u.info()
 	file_size = int(meta.getheaders("Content-Length")[0])
 	print "Downloading: %s Bytes: %s" % (file_name, file_size)
