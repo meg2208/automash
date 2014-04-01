@@ -26,17 +26,4 @@ so something like...
 
 <h2>Examples</h2>
 
-<object height="45" width="167" type="application/x-shockwave-flash" id="audioPalPlayer" data="http://content.oddcast.com/host/audiopal/swf/workshop_player_shell.swf?mId=59322241.1&doorId=427&ds=http://host-d.oddcast.com/&playOnLoad=true&polFreq=&polUnit=">
-	<param name="movie" value="http://content.oddcast.com/host/audiopal/swf/workshop_player_shell.swf?mId=59322241.1&doorId=427&ds=http://host-d.oddcast.com/&playOnLoad=true&polFreq=&polUnit=" />
-	<param name="allowscriptaccess" value="always" />
-	<param name="allownetworking" value="all" />
-	<param name="base" value="/swf/" />
-	<param name="quality" value="high" />
-	<param name="bgcolor" value="#e8e9e3" />
-	<param name="height" value="45" />
-	<param name="width" value="167" />
-	<param name="wmode" value="transparent" />
-</object>
-
-
-
+<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/142455002&amp;auto_play=false&amp;hide_related=false&amp;visual=true"></iframe>
