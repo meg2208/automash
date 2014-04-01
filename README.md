@@ -26,4 +26,5 @@ so something like...
 
 <h2>Examples</h2>
 
-<a target="_blank" href="https://soundcloud.com/matt-garbis/automash-example-1">check it out</a>
+<a target="_blank" href="https://soundcloud.com/garbanzio/automash-example-1">some random 80s songs</a><br>
+<a target="_blank" href="https://soundcloud.com/garbanzio/automash-example-2">I think these are also random 80s songs</a>
