@@ -10,4 +10,4 @@ if __name__ == '__main__':
 	else:
 		print argv[1], argv[2].split('.')[0]
 		mood, output_name = argv[1], argv[2].split('.')[0]
-	MoodBoombox(mood, output_name)
+		MoodBoombox(mood, output_name)
