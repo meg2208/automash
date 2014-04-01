@@ -1,0 +1,4 @@
+automash
+========
+
+automatic mashup generator
